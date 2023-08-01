@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let playerWins = 0
+        let computerWins = 0
+
+        function winner(playerSelection, computerSelection) {
+            const tieMessage = 'Empatao desgraciao'
+            const loserMessage = 'Perdiste pringao'
+            const winnerMessage = 'Ganaste tryharder'
+            if (playerSelection === computerSelection) {
+                alert(tieMessage)
+            }
+            if (playerSelection === 'paper') {
+                if (computerSelection === 'scissors') {
+                    alert(loserMessage)
+                    computerWins = +1
+                }
+                if (computerSelection === 'rock') {
+                    alert(innerMessage)
+                    playerWins = +1
+                }
+            }
+            if (playerSelection === 'scissors') {
+                if (computerSelection === 'rock') {
+                    alert(loserMessage)
+                    computerWins = +1
+                }
+                if (computerSelection === 'paper') {
+                    alert(winnerMessage)
+                    playerWins = +1
+                }
+            }
+            if (playerSelection === 'rock') {
+                if (computerSelection === 'paper') {
+                    alert(loserMessage)
+                    computerWins = +1
+                }
+                if (computerSelection === 'scissors') {
+                    alert(winnerMessage)
+                    playerWins = +1
+                }
+            }
+        }
+
+        function getComputerChoice() {
+            const choices = ['rock', 'paper', 'scissors']
+            const randomIndex = Math.floor (Math.random() * choices.length);
+            return choices[randomIndex]
+        }
+
+        function game () {
+            const playerChoice = prompt('Choose rock, paper or scissors', 'scissors')
+            const computerChoice = getComputerChoice()
+            winner (playerChoice, computerChoice)
+        }
+
+        game()
+        game()
+        game()
+        game()
+        game()
+
+        console.log()
+        if (playerWins > computerWins) {
+            console.log('player wins','player:', playerWins)
+        }
+        if (computerWins > playerWins) {
+            console.log('computer wins', 'computer:', computerWins)
+        }
+        
+    </script>
+</body>
+</html>
