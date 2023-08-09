@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <script>
+
+        let playerWins = 0
+        let computerWins = 0
+        let totalRounds = 0
+        const backgroundMusic = document.getElementById("backgroundMusic");
+
+        document.getElementById("playMusic").addEventListener("click", () => {
+            backgroundMusic.play();
+        });
+
+        document.getElementById("pauseMusic").addEventListener("click", () => {
+            backgroundMusic.pause();
+        });
+
+        document.getElementById('rock').addEventListener('click', function() {
+            playRound('rock');
+        });
+
+        document.getElementById('paper').addEventListener('click', function() {
+            playRound('paper');
+        });
+
+        document.getElementById('scissors').addEventListener('click', function() {
+            playRound('scissors');
+        });
+
+        function winner(playerSelection, computerSelection) {
+            const tieMessage = 'Empatao desgraciao'
+            const loserMessage = 'Perdiste pringao'
+            const winnerMessage = 'Ganaste tryharder'
+            console.log('Computer chose:', computerSelection);
+            if (playerSelection === computerSelection) {
+                alert(tieMessage)
+            }
+            if (playerSelection === 'paper') {
+                if (computerSelection === 'scissors') {
+                    alert(loserMessage)
+                    computerWins = +1
+                }
+                if (computerSelection === 'rock') {
+                    alert(winnerMessage)
+                    playerWins = +1
+                }
+            }
+            if (playerSelection === 'scissors') {
+                if (computerSelection === 'rock') {
+                    alert(loserMessage)
+                    computerWins = +1
+                }
+                if (computerSelection === 'paper') {
+                    alert(winnerMessage)
+                    playerWins = +1
+                }
+            }
+            if (playerSelection === 'rock') {
+                if (computerSelection === 'paper') {
+                    alert(loserMessage)
+                    computerWins = +1
+                }
+                if (computerSelection === 'scissors') {
+                    alert(winnerMessage)
+                    playerWins = +1
+                }
+            }
+        }
+
+        function getComputerChoice() {
+            const choices = ['rock', 'paper', 'scissors']
+            const randomIndex = Math.floor (Math.random() * choices.length);
+            return choices[randomIndex]
+        }
+
+        function playRound(playerSelection) {
+            const computerSelection = getComputerChoice();
+            winner(playerSelection, computerSelection);
+            totalRounds++;
+
+            if (totalRounds === 5) {
+                showWinner(); // After 5 rounds, announce the winner
+                resetGame();
+            }
+        }
+
+
+        function showWinner() {
+            if (playerWins > computerWins) {
+                console.log('Player wins', 'player:', playerWins);
+            } else if (computerWins > playerWins) {
+                console.log('Computer wins', 'computer:', computerWins);
+            } else {
+                console.log('It\'s a tie');
+            }
+        }
+
+        function resetGame() {
+            playerWins = 0;
+            computerWins = 0;
+            totalRounds = 0;
+        }
+
+        function playSound(sound) {
+            sound.currentTime = 0;
+            sound.play();
+        }
+        
+    </script>
+    <audio id="backgroundMusic" loop>
+        <source src="sounds/Guile Theme.mp3"type="audio/mpeg"> 
+    </audio>
+    <button id="playMusic">Play Music</button>
+    <button id="pauseMusic">Pause Music</button>
+</body>
+</html>
