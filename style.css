@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'streetfont';
+    src: url('Act_Of_Rejection.ttf') format('truetype');
+}
+
+.character-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    z-index: 9999;
+}
+
+.characters {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.character {
+    cursor: pointer;
+}
+
+.game-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#start-game {
+    margin-top: 20px;
+    font-size: 50px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center; 
+    height: 100vh; 
+    margin: 0;
+    background-image: url("scenary.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+    font-family: 'streetfont', sans-serif;
+    color: red;
+}
+
+.characters-container {
+    display: flex;
+    align-items: center;
+    margin-top: 300px;
+    gap: 300px;
+}
+
+.character-image-large {
+    width: 400px;
+    margin: 0 20px; 
+}
+
+.character-image-large.bison img {
+    transform: scaleX(-1);
+}
