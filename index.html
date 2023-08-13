@@ -9,7 +9,7 @@
 <body>
     <div class="character-selection">
         <h1>ULTIMATE BATTLE TO SAVE PLANET EARTH</h1>
-        <h2>Elige a tu luchador</h2>
+        <h2>Choose your fighter</h2>
         <div class="characters">
             <div class="character" id="luchador-1" data-gif-small="mini-guile.gif" data-gif-large="guile.gif">
                 <h3>Guile</h3>
@@ -30,27 +30,36 @@
                 </div>
             </div>
         </div>
-        <button id="start-game">Empezar juego</button>
+        <button id="start-game">START GAME</button>
     </div>
     
     <div class="game-content">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+        <div class="options">
+            <img id="rock" class="option" src="rock.png" alt="Rock">
+            <img id="paper" class="option" src="paper.png" alt="Paper">
+            <img id="scissors" class="option" src="scissors.png" alt="Scissors">
+        </div>
         <audio id="backgroundMusic" loop autoplay>
             <source src="sounds/Guile Theme.wav" type="audio/wav"> 
         </audio>
+        
         <button id="playMusic">Play Music</button>
-    
+        <button id="reset-button">Reset Game</button>
+
         <div class="characters-container">
-            <div class="character-image-large">
+            <div class="character-image-large" id="player-character">
                 <img src="selected-gif.gif" alt="GIF">
             </div>
-            <div class="character-image-large bison">
+            <div class="character-image-large bison" id="computer-character">
                 <img src="bison.gif" alt="GIF">
             </div>
         </div>
+        <div class="round-counter">
+            Rounds: <span id="round-number">0-0</span>
+        </div>
+        <div id="game-result" class="game-result" style="display: none;"></div>
     </div>
+    
     <script src="js-file.js"></script>
 </body>
 </html>

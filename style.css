@@ -32,6 +32,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 #start-game {
@@ -48,7 +49,9 @@ body {
     margin: 0;
     background-image: url("scenary.png");
     background-size: cover;
+    background-position: center bottom;
     background-repeat: no-repeat;
+    overflow: hidden; /* Prevent scrolling */
 }
 
 h1 {
@@ -58,18 +61,97 @@ h1 {
     color: red;
 }
 
-.characters-container {
+.options {
     display: flex;
-    align-items: center;
-    margin-top: 300px;
-    gap: 300px;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.option {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    margin: 0 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.selected-image {
+    position: relative;
+    z-index: 1;
 }
 
 .character-image-large {
     width: 400px;
-    margin: 0 20px; 
+    height: 850px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.character-image-large img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .character-image-large.bison img {
     transform: scaleX(-1);
 }
+
+.options .option {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+}
+
+.round-counter {
+    text-align: center;
+    font-size: 48px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+#game-result {
+    font-size: 36px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: none;
+}
+
+.characters-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#playMusic,
+#reset-button {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+#playMusic {
+    margin-right: 10px;
+}
+
+#reset-button {
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+
+
+
+
